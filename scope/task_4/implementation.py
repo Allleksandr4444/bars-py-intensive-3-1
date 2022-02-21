@@ -1,7 +1,9 @@
+import builtins
+
+
 def bad_open(file_path, mode):
     """Некорректная функция открытия файла"""
-    with open(file_path, mode) as file:
-        return file
+    raise Exception
 
 
 def open_and_close_file(file_path):
@@ -11,5 +13,6 @@ def open_and_close_file(file_path):
         file_path: путь до файла
     """
     open = bad_open
+    open = builtins.open
     f = open(file_path, 'r')
     f.close()
