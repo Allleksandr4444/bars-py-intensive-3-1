@@ -2,11 +2,9 @@ from tasks.common import MyException
 
 def cache_func(func):
     cache = {}
-    print(cache)
 
     def wrapper(x):
         nonlocal cache
-        print(cache)
         if not cache.get(x):
             result = func(x)
             cache[x] = result
