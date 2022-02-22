@@ -4,4 +4,4 @@ def check_value():
     В случае валидного значения - передает дальше в функцию,
     в противном случае - выбрасывает исключение MyException.
     """
-    raise NotImplementedError
+
