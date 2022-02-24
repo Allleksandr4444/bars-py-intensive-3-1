@@ -6,15 +6,15 @@ class ClassFather:
     registered_list = []
 
     def get_name(self):
-        if self._name is None or self not in self.registered_list:
-            raise MyException
-        else:
+        if self.__class__ in self.registered_list:
             return self._name
+        else:
+            raise MyException
 
     def register(self):
-        if self._name is None:
+        if self.__class__ == ClassFather:
             raise MyException
-        self.registered_list.append(self)
+        self.registered_list.append(self.__class__)
 
 
 class User1(ClassFather):
