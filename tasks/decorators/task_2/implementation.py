@@ -5,12 +5,13 @@ def cache_func(func):
 
     def wrapper(x):
         nonlocal cache
+        result = None
         if not cache.get(x):
             result = func(x)
             cache[x] = result
-            return result
         else:
-            return cache[x]
+            result = cache[x]
+        return result
 
     return wrapper
 
@@ -22,7 +23,7 @@ def check_value(func):
     в противном случае - выбрасывает исключение MyException.
     """
     def wrapper(arg):
-        if isinstance(arg, int) and arg >= 0:
+        if type(arg) == int and arg >= 0:
             return func(arg)
         else:
             raise MyException

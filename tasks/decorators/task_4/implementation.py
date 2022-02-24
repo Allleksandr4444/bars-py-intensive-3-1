@@ -19,7 +19,7 @@ def decorator_maker(times, delay):
             for _ in range(times):
                 try:
                     res = func(*args, **kwargs)
-                    if bool(res):
+                    if res:
                         break
                 except:
                     time.sleep(delay)
