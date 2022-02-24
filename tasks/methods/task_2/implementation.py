@@ -5,16 +5,19 @@ class ClassFather:
     _name = None
     registered_list = []
 
-    def get_name(self):
-        if self.__class__ in self.registered_list:
-            return self._name
+    @classmethod
+    def register(cls):
+        if cls != ClassFather and issubclass(cls, ClassFather):
+            cls.registered_list.append(cls)
         else:
             raise MyException
 
-    def register(self):
-        if self.__class__ == ClassFather:
+    @classmethod
+    def get_name(cls):
+        if cls in cls.registered_list:
+            return cls._name
+        else:
             raise MyException
-        self.registered_list.append(self.__class__)
 
 
 class User1(ClassFather):
