@@ -5,69 +5,56 @@ class Multiplier:
     def get_value(self):
         return int(self.__number)
 
+    def check(func):
+
+        def wrapper(*args):
+            for i in args:
+                if not isinstance(i, (Multiplier, int)):
+                    raise Exception('Операнды должны быть целым числом либо являться дочерним классом Multiplier')
+            result = func(*args)
+            return result
+
+        return wrapper
+
+    @check
     def __add__(self, other):
-        if isinstance(other, Multiplier):
-            value = self.__number + other.__number
-        else:
-            value = self.__number
 
-        return Multiplier(value)
+        return Multiplier(self.__number + other.__number)
 
+    @check
     def __radd__(self, other):
-        if isinstance(other, Multiplier):
-            value = other.__number + self.__number
-        else:
-            value = self.__number
 
-        return value
+        return other.__number + self.__number
 
+    @check
     def __sub__(self, other):
-        if isinstance(other, Multiplier):
-            value = self.__number - other.__number
-        else:
-            value = self.__number
 
-        return Multiplier(value)
+        return Multiplier(self.__number - other.__number)
 
+    @check
     def __rsub__(self, other):
-        if isinstance(other, Multiplier):
-            value = other.__number - self.__number
-        else:
-            value = self.__number
 
-        return value
+        return other.__number - self.__number
 
+    @check
     def __mul__(self, other):
-        if isinstance(other, Multiplier):
-            value = self.__number * other.__number
-        else:
-            value = self.__number
 
-        return Multiplier(value)
+        return Multiplier(self.__number * other.__number)
 
+    @check
     def __rmul__(self, other):
-        if isinstance(other, Multiplier):
-            value = other.__number * self.__number
-        else:
-            value = self.__number
 
-        return value
+        return other.__number * self.__number
 
+    @check
     def __truediv__(self, other):
-        if isinstance(other, Multiplier):
-            value = self.__number / other.__number
-        else:
-            value = self.__number
 
-        return Multiplier(value)
+        return Multiplier(self.__number / other.__number)
 
+    @check
     def __rtruediv__(self, other):
-        if isinstance(other, Multiplier):
-            value = other.__number / self.__number
-        else:
-            value = self.__number
 
-        return value
+        return other.__number / self.__number
 
 
 class Hundred(Multiplier):
