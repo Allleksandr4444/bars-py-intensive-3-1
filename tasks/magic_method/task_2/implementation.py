@@ -32,4 +32,3 @@ class MathClock:
             raise 'Введите целое число!'
         time = datetime.timedelta(hours=int(other))
         self.__time_now -= time
-

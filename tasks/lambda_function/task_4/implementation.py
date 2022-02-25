@@ -10,4 +10,3 @@ my_list_product = [a, b, c]
 
 res_list_product = list(filter(lambda x: x.value > 10, my_list_product))
 
-
