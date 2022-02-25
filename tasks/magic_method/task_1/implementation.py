@@ -3,15 +3,20 @@ class Multiplier:
         self.__number = value
 
     def get_value(self):
+
         return int(self.__number)
 
     def check(func):
 
         def wrapper(*args):
+
             for i in args:
-                if not isinstance(i, (Multiplier, int)):
-                    raise Exception('Операнды должны быть целым числом либо являться дочерним классом Multiplier')
+                if not isinstance(i, Multiplier):
+
+                    raise Exception('Операнды должны являться дочерним классом Multiplier')
+
             result = func(*args)
+
             return result
 
         return wrapper
