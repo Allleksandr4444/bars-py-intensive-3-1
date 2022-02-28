@@ -9,5 +9,5 @@ def return_error(file):
                 print(i)
 
 
-'''Test'''
+# Test
 print(return_error('log.txt'))

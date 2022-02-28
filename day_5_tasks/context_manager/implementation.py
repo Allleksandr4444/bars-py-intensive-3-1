@@ -21,6 +21,6 @@ def count_lines(path, mode='r', encoding='utf-8'):
         f.close()
 
 
-'''Test'''
+# Test
 with count_lines('../generators/task2/log.txt') as f:
     pass
