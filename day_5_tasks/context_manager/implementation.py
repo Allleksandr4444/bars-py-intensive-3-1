@@ -7,17 +7,17 @@ def count_lines(path, mode='r', encoding='utf-8'):
         """
         Если файл открыт только для чтения или для чтения и записи, печатается количество строк в этом файле. 
         """
-        f = open(path, mode)
-        print('Количество строк в файле:', len(f.readlines()))
-        yield f
-        f.close()
+        file_open = open(path, mode)
+        print('Количество строк в файле:', len(file_open.readlines()))
+        yield file_open
+        file_open.close()
     else:
         """
         При ином режиме доступа контекстный менеджер отрабатывает без изменений
         """
-        f = open(path, mode)
-        yield f
-        f.close()
+        file_open = open(path, mode)
+        yield file_open
+        file_open.close()
 
 
 # Test
