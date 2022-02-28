@@ -8,8 +8,8 @@ def count_lines(path, mode='r', encoding='utf-8'):
         Если файл открыт только для чтения или для чтения и записи, печатается количество строк в этом файле. 
         """
         f = open(path, mode)
-        all_file = [i.rstrip() for i in f.readlines()]
-        print(len(all_file))
+        all_file = [i for i in f.readlines()]
+        print('Количество строк в файле:', len(all_file))
         yield f
         f.close()
     else:
